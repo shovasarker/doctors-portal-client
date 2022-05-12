@@ -1,9 +1,9 @@
 import React from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 
-import CustomLink from '../../../../standalone/CustomLink'
+import MenuItems from '../MenuItems'
 
-const MobileMenu = ({ links }) => {
+const MobileMenu = () => {
   return (
     <div className='navbar-end'>
       <div className='dropdown dropdown-end'>
@@ -14,14 +14,7 @@ const MobileMenu = ({ links }) => {
           tabIndex='0'
           className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-64 space-y-2'
         >
-          {links?.map(([to, value], i) => (
-            <li key={i}>
-              <CustomLink to={to}>{value}</CustomLink>
-            </li>
-          ))}
-          <li>
-            <CustomLink to={'/login'}>Login</CustomLink>
-          </li>
+          <MenuItems />
         </ul>
       </div>
     </div>
