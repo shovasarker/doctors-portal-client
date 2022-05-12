@@ -8,7 +8,7 @@ const CustomLink = ({ to, children }) => {
   return (
     <Link
       to={to}
-      className={`btn !px-2  ${
+      className={`btn !px-2 !py-1.5 !h-auto !min-h-0 !capitalize text-base  ${
         match ? 'btn-neutral text-base-100' : 'btn-ghost text-neutral'
       }`}
     >
