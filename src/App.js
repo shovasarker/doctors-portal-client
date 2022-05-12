@@ -1,7 +1,9 @@
+import Header from './pages/shared/header/Header'
+
 function App() {
   return (
     <div>
-      <h1>Hello word</h1>
+      <Header />
     </div>
   )
 }
