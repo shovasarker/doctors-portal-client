@@ -6,10 +6,13 @@ const Menu = ({ links }) => {
     <div className='navbar-center hidden lg:flex'>
       <ul className='menu menu-horizontal p-0 space-x-1'>
         {links?.map(([to, value], i) => (
-          <CustomLink key={i} to={to}>
-            {value}
-          </CustomLink>
+          <li key={i}>
+            <CustomLink to={to}>{value}</CustomLink>
+          </li>
         ))}
+        <li>
+          <CustomLink to={'/login'}>Login</CustomLink>
+        </li>
       </ul>
     </div>
   )

@@ -15,10 +15,13 @@ const MobileMenu = ({ links }) => {
           className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-64 space-y-2'
         >
           {links?.map(([to, value], i) => (
-            <CustomLink key={i} to={to}>
-              {value}
-            </CustomLink>
+            <li key={i}>
+              <CustomLink to={to}>{value}</CustomLink>
+            </li>
           ))}
+          <li>
+            <CustomLink to={'/login'}>Login</CustomLink>
+          </li>
         </ul>
       </div>
     </div>
