@@ -9,21 +9,21 @@ const Appointment = () => {
   return (
     <section className='mt-40 mb-20'>
       <div
-        class='hero bg-base-200'
+        className='hero bg-base-200'
         style={{
           backgroundImage: 'url(https://i.ibb.co/xXfm9Dv/appointment.png)',
         }}
       >
-        <div class='hero-content !container !px-6 !p-0 flex-col lg:flex-row'>
+        <div className='hero-content !container !px-6 !p-0 flex-col lg:flex-row'>
           <img
             src={img}
             alt={title}
-            class='hidden lg:block lg:w-1/2 xl:w-[45%] lg:-mt-12 xl:-mt-20'
+            className='hidden lg:block lg:w-1/2 xl:w-[45%] lg:-mt-12 xl:-mt-20'
           />
           <div className='lg:pr-6 xl:pr-32 py-10 lg:py-4 xl:py-16 text-base-100'>
             <h3 className='text-lg font-bold text-secondary'>{sectionTitle}</h3>
-            <h1 class='text-4xl font-semibold mt-5'>{title}</h1>
-            <p class='py-6'>{details}</p>
+            <h1 className='text-4xl font-semibold mt-5'>{title}</h1>
+            <p className='py-6'>{details}</p>
             <Button onClick={() => navigate('/appointment')}>
               Get Started
             </Button>
