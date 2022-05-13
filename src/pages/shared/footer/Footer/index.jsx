@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Footer = () => {
+  const year = new Date().getFullYear()
   return (
     <footer
       className='w-full py-20 text-neutral bg-cover bg-center md:bg-no-repeat'
@@ -44,7 +45,7 @@ const Footer = () => {
         </div>
       </div>
       <p className='text-center mt-16'>
-        Copyright &copy; 2022 All Rights Reserved
+        Copyright &copy; {year} All Rights Reserved
       </p>
     </footer>
   )

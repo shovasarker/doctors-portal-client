@@ -15,7 +15,7 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className='w-full md:max-w-lg mx-auto space-y-4 mt-10 text-neutral flex flex-col'
+      className='w-full px-6 md:max-w-md mx-auto space-y-4 mt-10 text-neutral flex flex-col'
     >
       <Input
         type={'email'}

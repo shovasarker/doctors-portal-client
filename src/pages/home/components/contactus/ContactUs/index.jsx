@@ -16,6 +16,7 @@ const ContactUs = () => {
         subTitle='Stay connected with us'
         center
         normal
+        className={'px-6'}
       />
       <ContactForm />
     </section>
