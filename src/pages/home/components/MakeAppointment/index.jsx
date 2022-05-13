@@ -4,7 +4,7 @@ import { APPOINTMENT } from '../../../../data'
 import Button from '../../../standalone/Button'
 import SectionTitle from '../../../standalone/SectionTitle'
 
-const Appointment = () => {
+const MakeAppointment = () => {
   const navigate = useNavigate()
   const { img, sectionTitle, title, details } = APPOINTMENT
   return (
@@ -34,4 +34,4 @@ const Appointment = () => {
   )
 }
 
-export default Appointment
+export default MakeAppointment

@@ -11,6 +11,7 @@ const Services = () => {
         subTitle='Services We Provide'
         center
         uppercase
+        normal
       />
       <div className='grid grid-cols-1 md:grid-cols-3 gap-5 my-20'>
         {SERVICES?.map(({ id, ...otherProps }) => (
