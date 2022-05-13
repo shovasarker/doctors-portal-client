@@ -8,21 +8,21 @@ export const INFOS = [
     img: clock,
     title: 'Opening Hours',
     details: 'Lorem ipsum dolor sit amet consectetur.',
-    color: 'primary',
+    color: true,
   },
   {
     id: 2,
     img: marker,
     title: 'Visit Our Location',
     details: 'Brooklyn, NY 10036, United States',
-    color: '',
+    color: false,
   },
   {
     id: 3,
     img: phone,
     title: 'Contact Us Now',
     details: '+000 123 456789',
-    color: 'primary',
+    color: true,
   },
 ]
 
@@ -53,6 +53,14 @@ export const SERVICES = [
 export const TREATMENT = {
   img: 'https://i.ibb.co/YNRShKY/treatment.png',
   title: 'Exceptional Dental Care, on Your Terms',
+  details:
+    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page",
+}
+
+export const APPOINTMENT = {
+  img: 'https://i.ibb.co/VNVb62d/doctor-small.png',
+  sectionTitle: 'Appointment',
+  title: 'Make an appointment Today',
   details:
     "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page",
 }

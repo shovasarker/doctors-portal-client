@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../../../standalone/Button'
 
 const Banner = () => {
   return (
@@ -23,9 +24,7 @@ const Banner = () => {
             recusandae sint excepturi necessitatibus reiciendis ex cum
             asperiores aliquid eligendi.
           </p>
-          <button className='btn bg-gradient-to-r from-secondary to-primary hover:from-primary hover:to-secondary text-base-100 font-bold uppercase border-0'>
-            Get Started
-          </button>
+          <Button>Get Started</Button>
         </div>
       </div>
     </div>

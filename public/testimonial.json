@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "img": "https://i.ibb.co/jk07Y2j/people1.png",
+    "name": "Winson Herry",
+    "address": "California",
+    "quote": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content"
+  },
+  {
+    "id": 2,
+    "img": "https://i.ibb.co/qNqYQVP/people2.png",
+    "name": "Lisa Talbet",
+    "address": "Los Angeles",
+    "quote": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content"
+  },
+  {
+    "id": 3,
+    "img": "https://i.ibb.co/2WQVkX0/people3.png",
+    "name": "Mary Harrington",
+    "address": "Texas",
+    "quote": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content"
+  }
+]
