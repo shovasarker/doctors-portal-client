@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <div className='hero !container px-6 bg-base-100'>
       <div
-        className='hero-content !px-0  pt-10 pb-20 lg:pt-20 lg:pb-32 !w-full flex-col lg:flex-row-reverse gap-12 bg-[length:90%]'
+        className='hero-content !px-0  pt-10 pb-20 lg:pt-20 lg:pb-32 !w-full flex-col lg:flex-row-reverse gap-12 bg-[length:100%] bg-center'
         style={{
           backgroundImage: "url('https://i.ibb.co/Y2Wsdgh/bg.png')",
         }}
@@ -23,7 +23,9 @@ const Banner = () => {
             recusandae sint excepturi necessitatibus reiciendis ex cum
             asperiores aliquid eligendi.
           </p>
-          <button className='btn btn-primary text-base-100'>Get Started</button>
+          <button className='btn bg-gradient-to-r from-secondary to-primary hover:from-primary hover:to-secondary text-base-100 font-bold uppercase border-0'>
+            Get Started
+          </button>
         </div>
       </div>
     </div>

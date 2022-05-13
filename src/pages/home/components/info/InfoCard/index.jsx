@@ -4,7 +4,7 @@ const InfoCard = ({ img, color, details, title }) => {
   return (
     <div
       className={`card w-full !flex-col md:!flex-row items-center py-5 px-4 xl:px-5 ${
-        color ? 'bg-primary' : 'bg-neutral'
+        color ? 'bg-gradient-to-r from-secondary to-primary' : 'bg-neutral'
       } text-white`}
     >
       <img

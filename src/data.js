@@ -25,3 +25,27 @@ export const INFOS = [
     color: 'primary',
   },
 ]
+
+export const SERVICES = [
+  {
+    id: 1,
+    img: 'https://i.ibb.co/xHNq8wZ/fluoride.png',
+    title: 'Fluoride Treatment',
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae assumenda fuga.',
+  },
+  {
+    id: 2,
+    img: 'https://i.ibb.co/wdLrt7N/cavity.png',
+    title: 'Cavity Filling',
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae assumenda fuga.',
+  },
+  {
+    id: 3,
+    img: 'https://i.ibb.co/qYm3Tm0/whitening.png',
+    title: 'Teeth Whitening',
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae assumenda fuga.',
+  },
+]
