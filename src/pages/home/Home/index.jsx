@@ -7,6 +7,7 @@ import Testimonials from '../components/testimonials/Testimonials'
 import Treatment from '../components/Treatment'
 import ContactUs from '../components/contactus/ContactUs'
 import BannerHome from '../components/BannerHome'
+import Footer from '../../shared/footer/Footer'
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <MakeAppointment />
       <Testimonials />
       <ContactUs />
+      <Footer />
     </main>
   )
 }

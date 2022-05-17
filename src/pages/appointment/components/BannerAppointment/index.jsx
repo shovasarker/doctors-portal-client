@@ -9,7 +9,12 @@ const BannerAppointment = () => {
   const { selected, setSelected } = useContext(DateContext)
   return (
     <Banner largeGap>
-      <DayPicker mode='single' selected={selected} onSelect={setSelected} />
+      <DayPicker
+        mode='single'
+        selected={selected}
+        onSelect={setSelected}
+        className='bg-base-100 shadow-lg p-4 rounded-xl'
+      />
     </Banner>
   )
 }
