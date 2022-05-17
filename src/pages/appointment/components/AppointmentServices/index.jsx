@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { format } from 'date-fns'
-import DateContext from '../../../../contexts/DateContext'
 import axios from 'axios'
 import AppointmentServiceCard from '../AppointmentServiceCard'
+import AppointmentContext from '../../../../contexts/AppointmentContext'
 
 const AppointmentServices = () => {
-  const { selected } = useContext(DateContext)
+  const { selected } = useContext(AppointmentContext)
   const [services, setServices] = useState([])
 
   useEffect(() => {

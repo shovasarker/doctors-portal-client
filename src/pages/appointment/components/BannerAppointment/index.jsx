@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { DayPicker } from 'react-day-picker'
 import 'react-day-picker/dist/style.css'
-import DateContext from '../../../../contexts/DateContext'
+import AppointmentContext from '../../../../contexts/AppointmentContext'
 
 import Banner from '../../../shared/Banner'
 
 const BannerAppointment = () => {
-  const { selected, setSelected } = useContext(DateContext)
+  const { selected, setSelected } = useContext(AppointmentContext)
   return (
     <Banner largeGap>
       <DayPicker
