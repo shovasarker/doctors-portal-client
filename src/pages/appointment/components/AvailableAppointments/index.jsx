@@ -6,7 +6,7 @@ import AppointmentCard from '../AppointmentCard'
 import AppointmentModal from '../AppointmentModal'
 
 const AvailableAppointments = () => {
-  const { serviceId } = useParams()
+  const { serviceName } = useParams()
   const [appointment, setAppointment] = useState({})
   const { _id, name, slots } = appointment
   const { name: treatmentName } = useContext(AppointmentContext)
@@ -14,14 +14,14 @@ const AvailableAppointments = () => {
   useEffect(() => {
     const getAppointment = async () => {
       const { data } = await axios.get(
-        `${process.env.PUBLIC_URL}/appointment.json`
+        `http://localhost:5000/appointment/${serviceName}`
       )
 
-      setAppointment(data.find(({ _id }) => _id === parseInt(serviceId)))
+      setAppointment(data)
     }
 
     getAppointment()
-  }, [serviceId])
+  }, [serviceName])
 
   return (
     <section className='my-20'>
@@ -32,13 +32,8 @@ const AvailableAppointments = () => {
 
       {slots?.length > 0 && (
         <div className='grid grid-cols-1 md:grid-cols-2 2 lg:grid-cols-3 gap-5 my-10'>
-          {slots?.map((timeSlots, i) => (
-            <AppointmentCard
-              key={i}
-              _id={_id}
-              name={name}
-              timeSlots={timeSlots}
-            />
+          {slots?.map((slot) => (
+            <AppointmentCard key={slot.id} _id={_id} name={name} slot={slot} />
           ))}
         </div>
       )}

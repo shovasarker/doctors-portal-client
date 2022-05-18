@@ -1,26 +1,20 @@
 [
   {
-    "id": 1,
     "name": "Teeth Orthodontics"
   },
   {
-    "id": 2,
     "name": "Cosmetic Dentistry"
   },
   {
-    "id": 3,
     "name": "Teeth Cleaning"
   },
   {
-    "id": 4,
     "name": "Cavity Protection"
   },
   {
-    "id": 5,
     "name": "Pediatric Dental"
   },
   {
-    "id": 6,
     "name": "Oral Surgery"
   }
 ]

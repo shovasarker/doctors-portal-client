@@ -12,8 +12,6 @@ const AppointmentModal = () => {
     formState: { errors },
   } = useForm()
 
-  console.log(errors)
-
   const onSubmit = (data) => {
     console.log(data)
     setName('')
@@ -46,7 +44,7 @@ const AppointmentModal = () => {
               placeholder='Time'
               className='input w-full bg-neutral/10'
               {...register('slot')}
-              value={slot}
+              value={slot?.time}
               readOnly
             />
             <div className='form-control w-full'>

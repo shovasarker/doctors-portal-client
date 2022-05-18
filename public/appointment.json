@@ -1,54 +1,248 @@
 [
   {
-    "_id": 1,
     "name": "Teeth Orthodontics",
     "slots": [
-      "08.00 AM - 08.30 AM",
-      "08.30 AM - 09.00 AM",
-      "09.00 AM - 9.30 AM",
-      "09.30 AM - 10.00 AM",
-      "10.00 AM - 10.30 AM",
-      "10.30 AM - 11.00 AM"
+      {
+        "id": "01467355bd32d45b",
+        "time": "08.00 AM - 08.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "f52dbd9608824a9b",
+        "time": "08.30 AM - 09.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "8692daaed9f2e00e",
+        "time": "09.00 AM - 9.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "96368846638c3a83",
+        "time": "09.30 AM - 10.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "0f8ffbf3d85038e7",
+        "time": "10.00 AM - 10.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "52e9fe71c932c44a",
+        "time": "10.30 AM - 11.00 AM",
+        "booked": "false",
+        "patient": null
+      }
     ]
   },
   {
-    "_id": 2,
     "name": "Cosmetic Dentistry",
     "slots": [
-      "09.00 AM - 9.30 AM",
-      "09.30 AM - 10.00 AM",
-      "10.00 AM - 10.30 AM",
-      "10.30 AM - 11.00 AM"
+      {
+        "id": "01467355bd31d45b",
+        "time": "08.00 AM - 08.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "f52dbd9508824a9b",
+        "time": "08.30 AM - 09.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "8692d8aed9f2e00e",
+        "time": "09.00 AM - 9.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "96368a46638c3a83",
+        "time": "09.30 AM - 10.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "0f8ffgf3d85038e7",
+        "time": "10.00 AM - 10.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "52e9f171c932c44a",
+        "time": "10.30 AM - 11.00 AM",
+        "booked": "false",
+        "patient": null
+      }
     ]
   },
   {
-    "_id": 3,
     "name": "Teeth Cleaning",
-    "slots": []
+    "slots": [
+      {
+        "id": "01467355bd31245b",
+        "time": "08.00 AM - 08.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "f52dbd950f824a9b",
+        "time": "08.30 AM - 09.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "8692d8aeb9f2e00e",
+        "time": "09.00 AM - 9.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "96368ah6638c3a83",
+        "time": "09.30 AM - 10.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "0f8ffcf3d85038e7",
+        "time": "10.00 AM - 10.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "52e9f17hc932c44a",
+        "time": "10.30 AM - 11.00 AM",
+        "booked": "false",
+        "patient": null
+      }
+    ]
   },
   {
-    "_id": 4,
     "name": "Cavity Protection",
-    "slots": ["10.00 AM - 10.30 AM", "10.30 AM - 11.00 AM"]
+    "slots": [
+      {
+        "id": "014673s5bd31d45b",
+        "time": "08.00 AM - 08.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "f52dbd9k08824a9b",
+        "time": "08.30 AM - 09.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "8692o8aed9f2e00e",
+        "time": "09.00 AM - 9.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "96362a46638c3a83",
+        "time": "09.30 AM - 10.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "0f83fgf3d85038e7",
+        "time": "10.00 AM - 10.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "52e9f171b932c44a",
+        "time": "10.30 AM - 11.00 AM",
+        "booked": "false",
+        "patient": null
+      }
+    ]
   },
   {
-    "_id": 5,
     "name": "Pediatric Dental",
     "slots": [
-      "08.30 AM - 09.00 AM",
-      "09.00 AM - 9.30 AM",
-      "09.30 AM - 10.00 AM",
-      "10.00 AM - 10.30 AM",
-      "10.30 AM - 11.00 AM"
+      {
+        "id": "01467355bd31d47b",
+        "time": "08.00 AM - 08.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "f52dbd950882ha9b",
+        "time": "08.30 AM - 09.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "8692d8aek9f2e00e",
+        "time": "09.00 AM - 9.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "9636da46638c3a83",
+        "time": "09.30 AM - 10.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "0f8ffbf3d85038e7",
+        "time": "10.00 AM - 10.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "52e9f161c932c44a",
+        "time": "10.30 AM - 11.00 AM",
+        "booked": "false",
+        "patient": null
+      }
     ]
   },
   {
-    "_id": 6,
     "name": "Oral Surgery",
     "slots": [
-      "09.30 AM - 10.00 AM",
-      "10.00 AM - 10.30 AM",
-      "10.30 AM - 11.00 AM"
+      {
+        "id": "01467355gd31d45b",
+        "time": "08.00 AM - 08.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "f52dbd9h08824a9b",
+        "time": "08.30 AM - 09.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "8692d8a5d9f2e00e",
+        "time": "09.00 AM - 9.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "96368a42638c3a83",
+        "time": "09.30 AM - 10.00 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "0f8ffgf3d45038e7",
+        "time": "10.00 AM - 10.30 AM",
+        "booked": "false",
+        "patient": null
+      },
+      {
+        "id": "52e9f171c93fc44a",
+        "time": "10.30 AM - 11.00 AM",
+        "booked": "false",
+        "patient": null
+      }
     ]
   }
 ]

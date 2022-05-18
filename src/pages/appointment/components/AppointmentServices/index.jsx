@@ -10,9 +10,7 @@ const AppointmentServices = () => {
 
   useEffect(() => {
     const getServices = async () => {
-      const { data } = await axios.get(
-        `${process.env.PUBLIC_URL}/services.json`
-      )
+      const { data } = await axios.get(`http://localhost:5000/services`)
 
       setServices(data)
     }
@@ -27,7 +25,7 @@ const AppointmentServices = () => {
       </h3>
       <div className='grid grid-cols-1 md:grid-cols-2 2 lg:grid-cols-3 gap-5 my-10'>
         {services?.map((service) => (
-          <AppointmentServiceCard service={service} key={service.id} />
+          <AppointmentServiceCard service={service} key={service._id} />
         ))}
       </div>
     </section>

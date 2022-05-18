@@ -15,7 +15,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/appointment' element={<Appointment />}>
           <Route
-            path='/appointment/:serviceId'
+            path='/appointment/:serviceName'
             element={<AvailableAppointments />}
           />
         </Route>
