@@ -1,5 +1,7 @@
 import axios from 'axios'
-import React, { useContext, useEffect, useState } from 'react'
+import { format } from 'date-fns'
+import React, { useContext } from 'react'
+import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import AppointmentContext from '../../../../contexts/AppointmentContext'
 import Spinner from '../../../standalone/Spinner'
@@ -8,43 +10,41 @@ import AppointmentModal from '../AppointmentModal'
 
 const AvailableAppointments = () => {
   const { serviceName } = useParams()
-  const [appointment, setAppointment] = useState({})
-  const [loading, setLoading] = useState(false)
-  const { _id, name, slots } = appointment
-  const { name: treatmentName } = useContext(AppointmentContext)
+  const { name: treatmentName, selected } = useContext(AppointmentContext)
 
-  useEffect(() => {
-    const getAppointment = async () => {
-      setLoading(true)
-      const { data } = await axios.get(
-        `https://dpss-server.herokuapp.com/appointment/${serviceName}`
-      )
+  const formattedDate = format(selected, 'PP')
 
-      setAppointment(data)
-      setLoading(false)
-    }
+  const getAppointment = async () => {
+    return await axios.get(
+      `https://dpss-server.herokuapp.com/appointment/${serviceName}?date=${formattedDate}`
+    )
+  }
 
-    getAppointment()
-  }, [serviceName])
-
-  if (loading) return <Spinner colored center />
+  const { data, isLoading, refetch } = useQuery(
+    ['available', formattedDate + serviceName],
+    getAppointment
+  )
+  if (isLoading) return <Spinner colored center />
+  const { _id, name, available } = data?.data
 
   return (
     <section className='my-20'>
       <h2 className='text-2xl text-secondary text-center font-semibold'>
-        {slots?.length > 0 ? 'Available Slots for ' : 'No Slots Abailable for '}
+        {available?.length > 0
+          ? 'Available Slots for '
+          : 'No Slots Abailable for '}
         {name}
       </h2>
 
-      {slots?.length > 0 && (
+      {available?.length > 0 && (
         <div className='grid grid-cols-1 md:grid-cols-2 2 lg:grid-cols-3 gap-5 my-10'>
-          {slots?.map((slot) => (
+          {available?.map((slot) => (
             <AppointmentCard key={slot.id} _id={_id} name={name} slot={slot} />
           ))}
         </div>
       )}
 
-      {treatmentName && <AppointmentModal />}
+      {treatmentName && <AppointmentModal refetch={refetch} />}
     </section>
   )
 }

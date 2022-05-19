@@ -3,7 +3,7 @@ import AppointmentContext from '../../../../contexts/AppointmentContext'
 
 const AppointmentCard = ({ _id, name, slot }) => {
   const { setName, setSlot, set_Id } = useContext(AppointmentContext)
-  const { time, booked } = slot
+  const { time } = slot
   return (
     <div className='card w-full bg-base-100 shadow-xl'>
       <div className='card-body text-center'>
@@ -20,7 +20,6 @@ const AppointmentCard = ({ _id, name, slot }) => {
               setSlot(slot)
               set_Id(_id)
             }}
-            disabled={booked === true ? true : false}
           >
             BOOK APPOINTMENT
           </label>

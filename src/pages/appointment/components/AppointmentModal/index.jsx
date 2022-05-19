@@ -9,7 +9,7 @@ import Button from '../../../standalone/Button'
 import Input from '../../../standalone/Input'
 import { toast } from 'react-toastify'
 
-const AppointmentModal = () => {
+const AppointmentModal = ({ refetch }) => {
   const { name, selected, slot, _id, setName, setSlot, set_Id } =
     useContext(AppointmentContext)
   const [{ email, displayName }] = useAuthState(auth)
@@ -20,14 +20,19 @@ const AppointmentModal = () => {
   } = useForm()
 
   const addBooking = async (booking) => {
-    const { data } = await axios.post('http://localhost:5000/booking', booking)
+    const { data } = await axios.post(
+      'https://dpss-server.herokuapp.com/booking',
+      booking
+    )
     if (data.insertedId) {
-      return toast.success(
+      toast.success(
         `Succefully Booked Your Appointment of ${booking.treatment} at ${booking.slot} on ${booking.date}`
       )
+      refetch()
+      return
     }
 
-    if (data?.booking) {
+    if (!data.success) {
       return toast.warning(
         `You Already Have an Appointment of ${data.booking.treatment} on ${data.booking.date} at ${data.booking.slot}`
       )
