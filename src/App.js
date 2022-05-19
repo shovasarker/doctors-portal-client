@@ -13,6 +13,7 @@ import Register from './pages/register/Register'
 import RequireAuth from './pages/shared/requireauth/RequireAuth'
 import Dashboard from './pages/dashboard/Dashboard'
 import MyAppointments from './pages/dashboard/components/MyAppointments'
+import MyReviews from './pages/dashboard/components/MyReviews'
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           }
         >
           <Route index element={<MyAppointments />} />
+          <Route path='reviews' element={<MyReviews />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
