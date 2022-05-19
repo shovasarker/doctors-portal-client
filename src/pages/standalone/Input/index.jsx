@@ -6,13 +6,15 @@ const Input = ({
   error,
   name,
   required,
+  pattern,
+  minLength,
   placeholder,
   type,
 }) => {
   return (
     <div>
       {label && (
-        <label className='label'>
+        <label className='label !py-1'>
           <span className='label-text'>{label}</span>
         </label>
       )}
@@ -20,10 +22,14 @@ const Input = ({
         type={type}
         placeholder={placeholder}
         className={`input input-bordered w-full ${error && 'border-red-500'}`}
-        {...register(name, { required: required })}
+        {...register(name, {
+          required: required,
+          pattern: pattern,
+          minLength: minLength,
+        })}
       />
       {error && (
-        <label className='label'>
+        <label className='label !py-1'>
           <span className='label-text-alt text-red-500'>{error?.message}</span>
         </label>
       )}

@@ -14,7 +14,6 @@ const GoogleSignIn = () => {
       return
     }
     if (error) {
-      console.log(error)
       toast.error(error?.message)
       return
     }

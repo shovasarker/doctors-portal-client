@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import {
-  useSendPasswordResetEmail,
-  useSignInWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
 } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
@@ -10,22 +10,21 @@ import Button from '../../standalone/Button'
 import Input from '../../standalone/Input'
 import Spinner from '../../standalone/Spinner'
 
-const EmailLogin = () => {
+const EmailRegister = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm()
 
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth)
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
 
-  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth)
+  const [updateProfile] = useUpdateProfile()
 
   useEffect(() => {
     if (user && !error) {
-      toast.success('Logged in Successfully with Email and Password')
+      toast.success('Registered Successfully with Email and Password')
       return
     }
     if (error) {
@@ -35,28 +34,26 @@ const EmailLogin = () => {
     }
   }, [user, error])
 
-  const email = watch('email')
-  const onSubmit = ({ email, password }) => {
-    console.log(email, password)
-    signInWithEmailAndPassword(email, password)
-  }
-
-  const handleResetPasssword = async () => {
-    if (!email) return toast.warning('Please! Enter an Email First!')
-
-    if (
-      !/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>().,;\s@"]+\.{0,1})+([^<>().,;:\s@"]{2,}|[\d.]+))$/.test(
-        email
-      )
+  const onSubmit = async ({ name, email, password }) => {
+    await createUserWithEmailAndPassword(email, password)
+    await updateProfile({ displayName: name })
+    toast.success('User Profile Updated')
+    toast.warning(
+      'Email Verification is Send to Your Email, If it is not in the mail box then check junk or spam folder please!'
     )
-      return toast.warning('Please! Enter a valid Email')
-
-    await sendPasswordResetEmail(email)
-    toast.success('Password Reset Email is Sent to your Email')
   }
 
   return (
     <form className='mt-10 space-y-1' onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        register={register}
+        type='text'
+        name='name'
+        placeholder={''}
+        error={errors?.name}
+        label='Name'
+        required={'Name is Required'}
+      />
       <Input
         register={register}
         type='email'
@@ -84,18 +81,11 @@ const EmailLogin = () => {
           message: 'Password Must be Atleast 6 character long',
         }}
       />
-      <button
-        type='button'
-        className='btn btn-link !h-6 !min-h-6 text-neutral underline-offset-1 !p-0 !px-1 capitalize !mt-0'
-        onClick={handleResetPasssword}
-      >
-        Forget Password?
-      </button>
       <Button type='submit' fullWidth neutral className={'!mt-4'}>
-        {loading ? <Spinner small colored /> : <>Login</>}
+        {loading ? <Spinner small colored /> : <>Register</>}
       </Button>
     </form>
   )
 }
 
-export default EmailLogin
+export default EmailRegister
