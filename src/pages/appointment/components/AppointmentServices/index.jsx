@@ -3,20 +3,28 @@ import { format } from 'date-fns'
 import axios from 'axios'
 import AppointmentServiceCard from '../AppointmentServiceCard'
 import AppointmentContext from '../../../../contexts/AppointmentContext'
+import Spinner from '../../../standalone/Spinner'
 
 const AppointmentServices = () => {
   const { selected } = useContext(AppointmentContext)
   const [services, setServices] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const getServices = async () => {
-      const { data } = await axios.get(`http://localhost:5000/services`)
+      setLoading(true)
+      const { data } = await axios.get(
+        `https://dpss-server.herokuapp.com/services`
+      )
 
       setServices(data)
+      setLoading(false)
     }
 
     getServices()
   }, [])
+
+  if (loading) return <Spinner colored center />
 
   return (
     <section className='container px-6 my-10'>

@@ -2,26 +2,32 @@ import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import AppointmentContext from '../../../../contexts/AppointmentContext'
+import Spinner from '../../../standalone/Spinner'
 import AppointmentCard from '../AppointmentCard'
 import AppointmentModal from '../AppointmentModal'
 
 const AvailableAppointments = () => {
   const { serviceName } = useParams()
   const [appointment, setAppointment] = useState({})
+  const [loading, setLoading] = useState(false)
   const { _id, name, slots } = appointment
   const { name: treatmentName } = useContext(AppointmentContext)
 
   useEffect(() => {
     const getAppointment = async () => {
+      setLoading(true)
       const { data } = await axios.get(
-        `http://localhost:5000/appointment/${serviceName}`
+        `https://dpss-server.herokuapp.com/appointment/${serviceName}`
       )
 
       setAppointment(data)
+      setLoading(false)
     }
 
     getAppointment()
   }, [serviceName])
+
+  if (loading) return <Spinner colored center />
 
   return (
     <section className='my-20'>
