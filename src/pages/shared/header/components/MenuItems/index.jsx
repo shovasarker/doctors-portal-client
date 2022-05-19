@@ -27,7 +27,9 @@ const MenuItems = () => {
         <>
           <Button
             outlined
-            className={'!px-2 !py-1.5 !h-auto !min-h-0 !capitalize'}
+            className={
+              '!px-2 !py-1.5 !h-auto !min-h-0 !capitalize !font-normal'
+            }
             onClick={() => signOut(auth)}
           >
             Log Out
