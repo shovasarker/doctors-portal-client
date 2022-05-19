@@ -7,9 +7,11 @@ const EmailLogin = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm()
 
+  const email = watch('email')
   const onSubmit = (data) => {
     console.log(data)
   }
@@ -34,10 +36,10 @@ const EmailLogin = () => {
         label='Password'
         required={'Passowrd is Required'}
       />
-      <button className='btn btn-link text-neutral !p-0 capitalize !mt-0'>
+      <button className='btn btn-link text-neutral underline-offset-1 !p-0 capitalize !mt-0'>
         Forget Password?
       </button>
-      <Button type='submit' neutral className={'!w-full !mt-6'}>
+      <Button type='submit' fullWidth neutral className={'!mt-6'}>
         Login
       </Button>
     </form>

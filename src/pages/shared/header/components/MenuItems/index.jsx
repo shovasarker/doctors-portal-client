@@ -25,7 +25,11 @@ const MenuItems = () => {
       ))}
       {user ? (
         <>
-          <Button neutral onClick={() => signOut(auth)}>
+          <Button
+            neutral
+            className={'!px-2 !py-1.5 !h-auto !min-h-0'}
+            onClick={() => signOut(auth)}
+          >
             Log Out
           </Button>
         </>

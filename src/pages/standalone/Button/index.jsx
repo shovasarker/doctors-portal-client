@@ -1,15 +1,25 @@
 import React from 'react'
 
-const Button = ({ children, neutral, onClick, className, type = 'button' }) => {
+const Button = ({
+  children,
+  fullWidth,
+  outlined,
+  neutral,
+  onClick,
+  className,
+  type = 'button',
+}) => {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`btn ${
-        !neutral
-          ? 'bg-gradient-to-r from-secondary to-primary hover:from-primary hover:to-secondary'
-          : 'bg-neutral'
-      } border-0 text-base-100 font-bold ${className ? className : ''}`}
+      className={`btn ${fullWidth && 'btn-block'} ${
+        !outlined
+          ? !neutral
+            ? 'bg-gradient-to-r from-secondary to-primary hover:from-primary hover:to-secondary'
+            : 'bg-neutral'
+          : 'btn-outline !border-neutral !text-neutral hover:!text-base-100 hover:bg-neutral'
+      } text-base-100 font-bold ${className ? className : ''}`}
     >
       {children}
     </button>
