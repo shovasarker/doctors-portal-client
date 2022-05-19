@@ -34,6 +34,9 @@ const EmailLogin = () => {
         label='Password'
         required={'Passowrd is Required'}
       />
+      <button className='btn btn-link text-neutral !p-0 capitalize !mt-0'>
+        Forget Password?
+      </button>
       <Button type='submit' neutral className={'!w-full !mt-6'}>
         Login
       </Button>

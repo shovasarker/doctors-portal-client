@@ -12,8 +12,8 @@ const Input = ({
   return (
     <div>
       {label && (
-        <label class='label'>
-          <span class='label-text'>{label}</span>
+        <label className='label'>
+          <span className='label-text'>{label}</span>
         </label>
       )}
       <input
@@ -23,8 +23,8 @@ const Input = ({
         {...register(name, { required: required })}
       />
       {error && (
-        <label class='label'>
-          <span class='label-text-alt text-red-500'>{error?.message}</span>
+        <label className='label'>
+          <span className='label-text-alt text-red-500'>{error?.message}</span>
         </label>
       )}
     </div>

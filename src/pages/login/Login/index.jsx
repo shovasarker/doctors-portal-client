@@ -1,4 +1,5 @@
 import React from 'react'
+import SocialLogin from '../../shared/sociallogin/SocialLogin'
 import EmailLogin from '../EmailLogin'
 
 const Login = () => {
@@ -8,6 +9,7 @@ const Login = () => {
         <div className='card-body'>
           <h2 className='text-xl text-neutral text-center'>Login</h2>
           <EmailLogin />
+          <SocialLogin />
         </div>
       </div>
     </main>
