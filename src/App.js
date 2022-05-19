@@ -10,6 +10,7 @@ import Header from './pages/shared/header/Header'
 
 import 'react-toastify/dist/ReactToastify.css'
 import Register from './pages/register/Register'
+import RequireAuth from './pages/shared/requireauth/RequireAuth'
 
 function App() {
   return (
@@ -21,7 +22,11 @@ function App() {
         <Route path='/appointment' element={<Appointment />}>
           <Route
             path='/appointment/:serviceName'
-            element={<AvailableAppointments />}
+            element={
+              <RequireAuth>
+                <AvailableAppointments />
+              </RequireAuth>
+            }
           />
         </Route>
         <Route path='/login' element={<Login />} />
