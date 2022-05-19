@@ -1,14 +1,16 @@
 import { format } from 'date-fns'
 import React, { useContext } from 'react'
+import axios from 'axios'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
 import AppointmentContext from '../../../../contexts/AppointmentContext'
 import auth from '../../../../firebase/firebase.init'
 import Button from '../../../standalone/Button'
 import Input from '../../../standalone/Input'
+import { toast } from 'react-toastify'
 
 const AppointmentModal = () => {
-  const { name, selected, slot, setName, setSlot, set_Id } =
+  const { name, selected, slot, _id, setName, setSlot, set_Id } =
     useContext(AppointmentContext)
   const [{ email, displayName }] = useAuthState(auth)
   const {
@@ -17,8 +19,35 @@ const AppointmentModal = () => {
     formState: { errors },
   } = useForm()
 
+  const addBooking = async (booking) => {
+    const { data } = await axios.post('http://localhost:5000/booking', booking)
+    if (data.insertedId) {
+      return toast.success(
+        `Succefully Booked Your Appointment of ${booking.treatment} at ${booking.slot} on ${booking.date}`
+      )
+    }
+
+    if (data?.booking) {
+      return toast.warning(
+        `You Already Have an Appointment of ${data.booking.treatment} on ${data.booking.date} at ${data.booking.slot}`
+      )
+    }
+  }
+
   const onSubmit = (data) => {
-    console.log(data)
+    const booking = {
+      treatmentId: _id,
+      treatment: name,
+      date: format(selected, 'PP'),
+      slot: slot.time,
+      patient: {
+        name: displayName,
+        email: email,
+        phone: data.phoneNumber,
+      },
+    }
+
+    addBooking(booking)
     setName('')
     setSlot('')
     set_Id('')
