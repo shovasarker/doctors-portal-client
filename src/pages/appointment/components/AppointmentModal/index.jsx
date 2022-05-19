@@ -2,6 +2,8 @@ import { format } from 'date-fns'
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import AppointmentContext from '../../../../contexts/AppointmentContext'
+import Button from '../../../standalone/Button'
+import Input from '../../../standalone/Input'
 
 const AppointmentModal = () => {
   const { name, selected, slot, setName, setSlot, set_Id } =
@@ -47,54 +49,34 @@ const AppointmentModal = () => {
               value={slot?.time}
               readOnly
             />
-            <div className='form-control w-full'>
-              <input
-                type='text'
-                placeholder='Full Name'
-                className={`input input-bordered w-full ${
-                  errors?.fullName && '!border-red-500'
-                }`}
-                {...register('fullName', { required: 'Full Name is Required' })}
-              />
-              <p className='text-red-500 text-xs px-2 mt-2'>
-                {errors?.fullName?.message}
-              </p>
-            </div>
-            <div className='form-control w-full'>
-              <input
-                type='number'
-                placeholder='Phone Number'
-                className={`input input-bordered w-full ${
-                  errors?.phoneNumber && '!border-red-500'
-                }`}
-                {...register('phoneNumber', {
-                  required: 'Phone Number is Required',
-                })}
-              />
-              <p className='text-red-500 text-xs px-2 mt-2'>
-                {errors?.phoneNumber?.message}
-              </p>
-            </div>
-            <div className='form-control w-full'>
-              <input
-                type='email'
-                placeholder='Email'
-                className={`input input-bordered w-full ${
-                  errors?.email && '!border-red-500'
-                }`}
-                {...register('email', { required: 'Email is Required' })}
-              />
-              <p className='text-red-500 text-xs px-2 mt-2'>
-                {errors?.email?.message}
-              </p>
-            </div>
+            <Input
+              type='text'
+              name='fullName'
+              placeholder='Full Name'
+              register={register}
+              required='Full Name is Required'
+              error={errors?.fullName}
+            />
+            <Input
+              type='number'
+              name='phoneNumber'
+              placeholder='Phone Number'
+              register={register}
+              required='Phone Number is Required'
+              error={errors?.phoneNumber}
+            />
+            <Input
+              type='email'
+              name='email'
+              placeholder='Email'
+              register={register}
+              required='Email is Required'
+              error={errors?.email}
+            />
 
-            <button
-              type='submit'
-              className='btn bg-neutral text-base-100 w-full uppercase !mt-6'
-            >
+            <Button type='submit' neutral className={'!w-full !mt-6'}>
               Submit
-            </button>
+            </Button>
           </form>
         </div>
       </div>

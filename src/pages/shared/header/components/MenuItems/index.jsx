@@ -1,4 +1,9 @@
+import { signOut } from 'firebase/auth'
 import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+
+import auth from '../../../../../firebase/firebase.init'
+import Button from '../../../../standalone/Button'
 import CustomLink from '../../../../standalone/CustomLink'
 
 const links = [
@@ -10,6 +15,7 @@ const links = [
 ]
 
 const MenuItems = () => {
+  const [user] = useAuthState(auth)
   return (
     <>
       {links?.map(([to, value], i) => (
@@ -17,9 +23,19 @@ const MenuItems = () => {
           <CustomLink to={to}>{value}</CustomLink>
         </li>
       ))}
-      <li>
-        <CustomLink to={'/login'}>Login</CustomLink>
-      </li>
+      {user ? (
+        <>
+          <Button neutral onClick={() => signOut(auth)}>
+            Log Out
+          </Button>
+        </>
+      ) : (
+        <>
+          <li>
+            <CustomLink to={'/login'}>Login</CustomLink>
+          </li>
+        </>
+      )}
     </>
   )
 }
