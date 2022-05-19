@@ -11,6 +11,8 @@ import Header from './pages/shared/header/Header'
 import 'react-toastify/dist/ReactToastify.css'
 import Register from './pages/register/Register'
 import RequireAuth from './pages/shared/requireauth/RequireAuth'
+import Dashboard from './pages/dashboard/Dashboard'
+import MyAppointments from './pages/dashboard/components/MyAppointments'
 
 function App() {
   return (
@@ -19,15 +21,28 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/appointment' element={<Appointment />}>
+        <Route
+          path='/appointment'
+          element={
+            <RequireAuth>
+              <Appointment />
+            </RequireAuth>
+          }
+        >
           <Route
             path='/appointment/:serviceName'
-            element={
-              <RequireAuth>
-                <AvailableAppointments />
-              </RequireAuth>
-            }
+            element={<AvailableAppointments />}
           />
+        </Route>
+        <Route
+          path='/dashboard'
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<MyAppointments />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

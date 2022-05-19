@@ -25,15 +25,20 @@ const MenuItems = () => {
       ))}
       {user ? (
         <>
-          <Button
-            outlined
-            className={
-              '!px-2 !py-1.5 !h-auto !min-h-0 !capitalize !font-normal'
-            }
-            onClick={() => signOut(auth)}
-          >
-            Log Out
-          </Button>
+          <li>
+            <CustomLink to='/dashboard'>Dashboard</CustomLink>
+          </li>
+          <li>
+            <Button
+              outlined
+              className={
+                '!px-2 !py-1.5 !h-auto !min-h-0 !capitalize !font-normal'
+              }
+              onClick={() => signOut(auth)}
+            >
+              Log Out
+            </Button>
+          </li>
         </>
       ) : (
         <>
