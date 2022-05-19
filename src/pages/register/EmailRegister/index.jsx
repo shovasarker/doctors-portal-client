@@ -20,19 +20,23 @@ const EmailRegister = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
 
-  const [updateProfile] = useUpdateProfile()
+  const [updateProfile, updating, profileError] = useUpdateProfile(auth)
 
   useEffect(() => {
-    if (user && !error) {
+    if (user && !error && !profileError) {
+      console.log(user)
       toast.success('Registered Successfully with Email and Password')
       return
     }
-    if (error) {
-      console.error(error)
+    if (error && !profileError && !user) {
       toast.error(error?.message)
       return
     }
-  }, [user, error])
+    if (!error && !user && profileError) {
+      toast.error(profileError?.message)
+      return
+    }
+  }, [user, error, profileError])
 
   const onSubmit = async ({ name, email, password }) => {
     await createUserWithEmailAndPassword(email, password)
@@ -82,7 +86,7 @@ const EmailRegister = () => {
         }}
       />
       <Button type='submit' fullWidth neutral className={'!mt-4'}>
-        {loading ? <Spinner small colored /> : <>Register</>}
+        {loading || updating ? <Spinner small colored /> : <>Register</>}
       </Button>
     </form>
   )
