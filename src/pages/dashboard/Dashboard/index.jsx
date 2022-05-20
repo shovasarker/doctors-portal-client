@@ -24,14 +24,20 @@ const Dashboard = () => {
           <ul className='menu py-4 overflow-y-auto w-64 lg:w-56 bg-base-100 text-base-content'>
             {/* <!-- Sidebar content here --> */}
             <li>
-              <CustomLink to='/dashboard'>My Appointments</CustomLink>
+              <CustomLink className={'!rounded-none'} to='/dashboard'>
+                My Appointments
+              </CustomLink>
             </li>
             <li>
-              <CustomLink to='/dashboard/reviews'>My Reviews</CustomLink>
+              <CustomLink className={'!rounded-none'} to='/dashboard/reviews'>
+                My Reviews
+              </CustomLink>
             </li>
             {admin && (
               <li>
-                <CustomLink to='/dashboard/users'>All Users</CustomLink>
+                <CustomLink className={'!rounded-none'} to='/dashboard/users'>
+                  All Users
+                </CustomLink>
               </li>
             )}
           </ul>
