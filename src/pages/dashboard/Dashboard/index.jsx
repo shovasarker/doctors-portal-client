@@ -24,6 +24,9 @@ const Dashboard = () => {
             <li>
               <CustomLink to='/dashboard/reviews'>My Reviews</CustomLink>
             </li>
+            <li>
+              <CustomLink to='/dashboard/users'>All Users</CustomLink>
+            </li>
           </ul>
         </div>
       </div>

@@ -1,9 +1,11 @@
 import axios from 'axios'
 import { format } from 'date-fns'
-import React, { useState } from 'react'
+import { signOut } from 'firebase/auth'
+import React, { useEffect, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useQuery } from 'react-query'
+import { toast } from 'react-toastify'
 import auth from '../../../../firebase/firebase.init'
 import Button from '../../../standalone/Button'
 import Spinner from '../../../standalone/Spinner'
@@ -17,15 +19,29 @@ const MyAppointments = () => {
 
   const getMyAppointments = async () => {
     const { data } = await axios.get(
-      `https://dpss-server.herokuapp.com/booking?date=${formattedDate}&email=${email}`
+      `http://localhost:5000/booking?date=${formattedDate}&email=${email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      }
     )
     return data
   }
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, error } = useQuery(
     ['my-appointments', formattedDate],
     getMyAppointments
   )
+  useEffect(() => {
+    if (!error) return
+    if (error?.response?.status === 401 || error?.response?.status === 403) {
+      console.log(error)
+      toast.error(error?.response?.data?.message)
+      signOut(auth)
+      localStorage.setItem('accessToken', '')
+    }
+  }, [error])
 
   return (
     <section className='my-10 w-full'>
