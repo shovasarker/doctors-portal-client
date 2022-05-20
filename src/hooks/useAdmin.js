@@ -10,7 +10,7 @@ const useAdmin = (user) => {
       if (!user) return
       setLoading(true)
       const { data } = await axios.get(
-        `http://localhost:5000/admin/${user?.email}`,
+        `https://dpss-server.herokuapp.com/admin/${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,

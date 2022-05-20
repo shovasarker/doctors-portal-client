@@ -6,7 +6,7 @@ import User from '../User'
 
 const Users = () => {
   const getUsers = async () => {
-    const { data } = await axios.get('http://localhost:5000/user', {
+    const { data } = await axios.get('https://dpss-server.herokuapp.com/user', {
       headers: {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },

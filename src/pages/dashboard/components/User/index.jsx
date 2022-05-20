@@ -7,7 +7,7 @@ const User = ({ _id, displayName, email, position, role, refetch }) => {
   const makeAdmin = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/user/admin/${email}`,
+        `https://dpss-server.herokuapp.com/user/admin/${email}`,
         null,
         {
           headers: {
