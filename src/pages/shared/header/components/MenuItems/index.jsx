@@ -16,6 +16,12 @@ const links = [
 
 const MenuItems = () => {
   const [user] = useAuthState(auth)
+
+  const handleSignOut = () => {
+    signOut(auth)
+    localStorage.setItem('accessToken', '')
+  }
+
   return (
     <>
       {links?.map(([to, value], i) => (
@@ -34,7 +40,7 @@ const MenuItems = () => {
               className={
                 '!px-2 !py-1.5 !h-auto !min-h-0 !capitalize !font-normal'
               }
-              onClick={() => signOut(auth)}
+              onClick={handleSignOut}
             >
               Log Out
             </Button>
