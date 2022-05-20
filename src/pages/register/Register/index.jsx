@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import auth from '../../../firebase/firebase.init'
+import useToken from '../../../hooks/useToken'
 import SocialLogin from '../../shared/sociallogin/SocialLogin'
 import EmailRegister from '../EmailRegister'
 
 const Register = () => {
   const navigate = useNavigate()
   const [user] = useAuthState(auth)
+  const [token] = useToken(user)
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
 
   useEffect(() => {
-    if (!user) return
-    navigate('/', { replace: true })
-  }, [user, navigate])
+    if (!token) return
+    navigate(from, { replace: true })
+  }, [token, from, navigate])
 
   return (
     <main>
@@ -24,7 +28,12 @@ const Register = () => {
             Already Have an Account?
             <button
               className='btn btn-link !text-secondary underline-offset-1 ml-2 !p-0 !capitalize'
-              onClick={() => navigate('/login', { replace: true })}
+              onClick={() =>
+                navigate('/login', {
+                  replace: true,
+                  state: { from: { pathname: from } },
+                })
+              }
             >
               Login Here
             </button>

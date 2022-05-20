@@ -25,7 +25,7 @@ const EmailLogin = () => {
 
   useEffect(() => {
     if (user && !error) {
-      toast.success('Logged in Successfully with Email and Password')
+      toast.success(`Welcome Back, ${user?.user?.displayName}`)
       return
     }
     if (error) {
@@ -37,7 +37,6 @@ const EmailLogin = () => {
 
   const email = watch('email')
   const onSubmit = ({ email, password }) => {
-    console.log(email, password)
     signInWithEmailAndPassword(email, password)
   }
 

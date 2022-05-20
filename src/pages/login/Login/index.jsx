@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useLocation, useNavigate } from 'react-router-dom'
 import auth from '../../../firebase/firebase.init'
+import useToken from '../../../hooks/useToken'
 import SocialLogin from '../../shared/sociallogin/SocialLogin'
 import EmailLogin from '../EmailLogin'
 
@@ -11,10 +12,12 @@ const Login = () => {
   const from = location.state?.from?.pathname || '/'
   const [user] = useAuthState(auth)
 
+  const [token] = useToken(user)
+
   useEffect(() => {
-    if (!user) return
+    if (!token) return
     navigate(from, { replace: true })
-  }, [user, navigate, from])
+  }, [token, navigate, from])
 
   return (
     <main>
@@ -26,7 +29,12 @@ const Login = () => {
             New to Doctor's Portal?
             <button
               className='btn btn-link !text-secondary underline-offset-1 ml-2 !p-0 !capitalize'
-              onClick={() => navigate('/register', { replace: true })}
+              onClick={() =>
+                navigate('/register', {
+                  replace: true,
+                  state: { from: { pathname: from } },
+                })
+              }
             >
               Create New Accouunt
             </button>

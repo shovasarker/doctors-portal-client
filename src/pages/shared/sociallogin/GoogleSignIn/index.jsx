@@ -10,7 +10,7 @@ const GoogleSignIn = () => {
 
   useEffect(() => {
     if (user && !error) {
-      toast.success('Logged in Successfully with Google')
+      toast.success(`Welcome to Doctor's Portal, ${user?.user?.displayName}`)
       return
     }
     if (error) {

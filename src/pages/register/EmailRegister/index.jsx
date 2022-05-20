@@ -23,9 +23,8 @@ const EmailRegister = () => {
   const [updateProfile, updating, profileError] = useUpdateProfile(auth)
 
   useEffect(() => {
-    if (user && !error && !profileError) {
-      console.log(user)
-      toast.success('Registered Successfully with Email and Password')
+    if (user) {
+      toast.success(`Thank you for registering your account`)
       return
     }
     if (error && !profileError && !user) {
