@@ -27,7 +27,7 @@ const ConfirmationModal = ({ email, name, refetch }) => {
       <div className='modal modal-bottom sm:modal-middle !z-50'>
         <div className='modal-box'>
           <h3 className='font-bold text-2xl'>Warning!</h3>
-          <p>Do your Want to Delete Dr. {name}</p>
+          <p>Do your Want to Delete Dr. {name}'s Information?</p>
           <div className='modal-action'>
             <button
               className='btn btn-error btn-md'
