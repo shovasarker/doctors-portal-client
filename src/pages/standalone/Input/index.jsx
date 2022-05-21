@@ -10,6 +10,7 @@ const Input = ({
   minLength,
   placeholder,
   type,
+  inputClass,
 }) => {
   return (
     <div>
@@ -21,7 +22,9 @@ const Input = ({
       <input
         type={type}
         placeholder={placeholder}
-        className={`input input-bordered w-full ${error && 'border-red-500'}`}
+        className={`input input-bordered w-full ${error && 'border-red-500'} ${
+          inputClass ? inputClass : ''
+        }`}
         {...register(name, {
           required: required,
           pattern: pattern,

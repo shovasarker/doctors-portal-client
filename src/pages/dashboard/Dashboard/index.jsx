@@ -34,11 +34,21 @@ const Dashboard = () => {
               </CustomLink>
             </li>
             {admin && (
-              <li>
-                <CustomLink className={'!rounded-none'} to='/dashboard/users'>
-                  All Users
-                </CustomLink>
-              </li>
+              <>
+                <li>
+                  <CustomLink className={'!rounded-none'} to='/dashboard/users'>
+                    All Users
+                  </CustomLink>
+                </li>
+                <li>
+                  <CustomLink
+                    className={'!rounded-none'}
+                    to='/dashboard/add-doctor'
+                  >
+                    Add a Doctor
+                  </CustomLink>
+                </li>
+              </>
             )}
           </ul>
         </div>
