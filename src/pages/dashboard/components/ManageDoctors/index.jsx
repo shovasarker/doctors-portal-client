@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import Spinner from '../../../standalone/Spinner'
 import DoctorRow from '../DoctorRow'
+import ConfirmationModal from '../ConfirmationModal'
+import DeleteContext from '../../../../contexts/DeleteContext'
 
 const ManageDoctors = () => {
+  const { deleted } = useContext(DeleteContext)
   const getDoctors = async () => {
-    const { data } = await axios.get('http://localhost:5000/doctor', {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-      },
-    })
+    const { data } = await axios.get(
+      'https://dpss-server.herokuapp.com/doctor',
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      }
+    )
     return data
   }
 
@@ -21,7 +27,7 @@ const ManageDoctors = () => {
       <h2 className='text-2xl text-neutral'>Manage Doctors</h2>
       {doctors?.length > 0 ? (
         <div className='overflow-x-auto w-full my-10'>
-          <table className='table w-full'>
+          <table className='table table-compact xl:table-normal w-full'>
             <thead>
               <tr>
                 <th>Index</th>
@@ -39,11 +45,13 @@ const ManageDoctors = () => {
                   position={i + 1}
                   _id={_id}
                   {...otherProps}
-                  refetch={refetch}
                 />
               ))}
             </tbody>
           </table>
+          {deleted?.email && (
+            <ConfirmationModal refetch={refetch} {...deleted} />
+          )}
         </div>
       ) : (
         <p className='my-10 text-center text-lg text-neutral/80'>

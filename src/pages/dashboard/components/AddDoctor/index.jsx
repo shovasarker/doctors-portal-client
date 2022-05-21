@@ -10,7 +10,9 @@ import Spinner from '../../../standalone/Spinner'
 const AddDoctor = () => {
   const [loading, setLoading] = useState(false)
   const getServices = async () => {
-    const { data } = await axios.get('http://localhost:5000/services')
+    const { data } = await axios.get(
+      'https://dpss-server.herokuapp.com/services'
+    )
     return data
   }
 
@@ -39,7 +41,7 @@ const AddDoctor = () => {
       }
 
       const { data: result } = await axios.post(
-        'http://localhost:5000/doctor',
+        'https://dpss-server.herokuapp.com/doctor',
         doctor,
         {
           headers: {

@@ -18,6 +18,7 @@ import Users from './pages/dashboard/components/Users'
 import RequireAdmin from './pages/standalone/RequireAdmin'
 import AddDoctor from './pages/dashboard/components/AddDoctor'
 import ManageDoctors from './pages/dashboard/components/ManageDoctors'
+import { DeleteProvider } from './contexts/DeleteContext'
 
 function App() {
   return (
@@ -43,7 +44,9 @@ function App() {
           path='/dashboard'
           element={
             <RequireAuth>
-              <Dashboard />
+              <DeleteProvider>
+                <Dashboard />
+              </DeleteProvider>
             </RequireAuth>
           }
         >

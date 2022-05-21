@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import DeleteContext from '../../../../contexts/DeleteContext'
 
-const DoctorRow = ({ _id, name, img, email, speciality, position }) => {
+const DoctorRow = ({ name, img, email, speciality, position }) => {
+  const { setDeleted } = useContext(DeleteContext)
+  const handleDeleteDoctor = async () => {
+    setDeleted({ name, email })
+  }
   return (
-    <tr key={_id}>
+    <tr>
       <td>{position}</td>
       <td>
-        <div class='flex items-center space-x-3'>
-          <div class='avatar-group'>
-            <div class='mask mask-squircle w-12 h-12'>
+        <div className='flex items-center space-x-3'>
+          <div className='avatar-group'>
+            <div className='mask mask-squircle w-12 h-12'>
               <img src={img} alt={name} />
             </div>
           </div>
@@ -17,7 +22,13 @@ const DoctorRow = ({ _id, name, img, email, speciality, position }) => {
       <td>{email}</td>
       <td>{speciality}</td>
       <th>
-        <button class='btn btn-outline btn-error btn-sm'>Delete</button>
+        <label
+          htmlFor='confirmation-modal'
+          className='btn btn-outline btn-error btn-sm'
+          onClick={handleDeleteDoctor}
+        >
+          Delete
+        </label>
       </th>
     </tr>
   )
