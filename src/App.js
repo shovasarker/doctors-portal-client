@@ -17,6 +17,7 @@ import MyReviews from './pages/dashboard/components/MyReviews'
 import Users from './pages/dashboard/components/Users'
 import RequireAdmin from './pages/standalone/RequireAdmin'
 import AddDoctor from './pages/dashboard/components/AddDoctor'
+import ManageDoctors from './pages/dashboard/components/ManageDoctors'
 
 function App() {
   return (
@@ -61,6 +62,14 @@ function App() {
             element={
               <RequireAdmin>
                 <AddDoctor />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path='manage-doctors'
+            element={
+              <RequireAdmin>
+                <ManageDoctors />
               </RequireAdmin>
             }
           />

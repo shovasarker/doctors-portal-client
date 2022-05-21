@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
@@ -8,6 +8,7 @@ import Input from '../../../standalone/Input'
 import Spinner from '../../../standalone/Spinner'
 
 const AddDoctor = () => {
+  const [loading, setLoading] = useState(false)
   const getServices = async () => {
     const { data } = await axios.get('http://localhost:5000/services')
     return data
@@ -17,17 +18,18 @@ const AddDoctor = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm()
 
   const onSubmit = async ({ name, email, speciality, image }) => {
+    setLoading(true)
     const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_STORAGE_KEY}`
 
     const formData = new FormData()
     formData.append('image', image[0])
 
     const { data } = await axios.post(url, formData)
-    console.log(data)
     if (data?.success) {
       const doctor = {
         name,
@@ -46,15 +48,16 @@ const AddDoctor = () => {
         }
       )
 
-      console.log(result)
       if (result?.insertedId) {
+        reset()
         toast.success(`${name} has been added as a doctor`)
       }
     }
+    setLoading(false)
   }
 
   return (
-    <div>
+    <div className='my-10'>
       <h2 className='text-2xl text-neutral'>Add a New Doctor</h2>
       <form
         className='max-w-full md:max-w-md px-5 py-8 rounded-lg shadow-xl mt-10 bg-base-100 space-y-1'
@@ -111,7 +114,7 @@ const AddDoctor = () => {
         />
 
         <Button type='submit' fullWidth neutral className={'!mt-6'}>
-          {false ? <Spinner small colored /> : <>Add Doctor</>}
+          {loading ? <Spinner small colored /> : <>Add Doctor</>}
         </Button>
       </form>
     </div>

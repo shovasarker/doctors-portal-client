@@ -48,6 +48,14 @@ const Dashboard = () => {
                     Add a Doctor
                   </CustomLink>
                 </li>
+                <li>
+                  <CustomLink
+                    className={'!rounded-none'}
+                    to='/dashboard/manage-doctors'
+                  >
+                    Manage Doctors
+                  </CustomLink>
+                </li>
               </>
             )}
           </ul>
