@@ -19,6 +19,7 @@ import RequireAdmin from './pages/standalone/RequireAdmin'
 import AddDoctor from './pages/dashboard/components/AddDoctor'
 import ManageDoctors from './pages/dashboard/components/ManageDoctors'
 import { DeleteProvider } from './contexts/DeleteContext'
+import Payment from './pages/dashboard/components/Payment'
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         >
           <Route index element={<MyAppointments />} />
           <Route path='reviews' element={<MyReviews />} />
+          <Route path='payment/:id' element={<Payment />} />
           <Route
             path='users'
             element={

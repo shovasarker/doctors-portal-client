@@ -1,6 +1,7 @@
 [
   {
     "name": "Teeth Orthodontics",
+    "price": 99,
     "slots": [
       {
         "id": "01467355bd32d45b",
@@ -30,6 +31,7 @@
   },
   {
     "name": "Cosmetic Dentistry",
+    "price": 99,
     "slots": [
       {
         "id": "01467355bd31d45b",
@@ -59,6 +61,7 @@
   },
   {
     "name": "Teeth Cleaning",
+    "price": 99,
     "slots": [
       {
         "id": "01467355bd31245b",
@@ -88,6 +91,7 @@
   },
   {
     "name": "Cavity Protection",
+    "price": 99,
     "slots": [
       {
         "id": "014673s5bd31d45b",
@@ -117,6 +121,7 @@
   },
   {
     "name": "Pediatric Dental",
+    "price": 99,
     "slots": [
       {
         "id": "01467355bd31d47b",
@@ -146,6 +151,7 @@
   },
   {
     "name": "Oral Surgery",
+    "price": 99,
     "slots": [
       {
         "id": "01467355gd31d45b",

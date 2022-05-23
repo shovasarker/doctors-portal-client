@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MyAppintmentsTable = ({ myAppointments }) => {
   return (
@@ -10,19 +11,38 @@ const MyAppintmentsTable = ({ myAppointments }) => {
             <th>Name</th>
             <th>Service</th>
             <th>Time</th>
+            <th>Payment</th>
           </tr>
         </thead>
         <tbody>
-          {myAppointments?.map(({ patient, treatment, slot }, i) => {
-            return (
-              <tr key={i}>
-                <td>{i + 1}</td>
-                <td>{patient?.name}</td>
-                <td>{treatment}</td>
-                <td>{slot}</td>
-              </tr>
-            )
-          })}
+          {myAppointments?.map(
+            ({ _id, patient, treatment, slot, price, paid }, i) => {
+              return (
+                <tr key={_id}>
+                  <td>{i + 1}</td>
+                  <td>{patient?.name}</td>
+                  <td>{treatment}</td>
+                  <td>{slot}</td>
+                  <td>
+                    {price ? (
+                      !paid ? (
+                        <Link
+                          to={`/dashboard/payment/${_id}`}
+                          className='btn btn-xs md:btn-sm btn-outline capitalize btn-secondary hover:!text-base-100'
+                        >
+                          Pay
+                        </Link>
+                      ) : (
+                        <span className='text-success'>Paid</span>
+                      )
+                    ) : (
+                      <></>
+                    )}
+                  </td>
+                </tr>
+              )
+            }
+          )}
         </tbody>
       </table>
     </div>

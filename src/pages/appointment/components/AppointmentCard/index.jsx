@@ -1,14 +1,17 @@
 import React, { useContext } from 'react'
 import AppointmentContext from '../../../../contexts/AppointmentContext'
 
-const AppointmentCard = ({ _id, name, slot }) => {
-  const { setName, setSlot, set_Id } = useContext(AppointmentContext)
+const AppointmentCard = ({ _id, name, slot, price }) => {
+  const { setName, setSlot, set_Id, setPrice } = useContext(AppointmentContext)
   const { time } = slot
   return (
     <div className='card w-full bg-base-100 shadow-xl'>
       <div className='card-body text-center'>
         <h2 className='text-lg text-secondary font-semibold'>{name}</h2>
         <p>{time}</p>
+        <p>
+          <small>Price: ${price}</small>
+        </p>
         <div className='card-actions'>
           <label
             htmlFor='appointment-modal'
@@ -19,6 +22,7 @@ const AppointmentCard = ({ _id, name, slot }) => {
               setName(name)
               setSlot(slot)
               set_Id(_id)
+              setPrice(price)
             }}
           >
             BOOK APPOINTMENT

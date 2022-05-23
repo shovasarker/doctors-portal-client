@@ -25,7 +25,7 @@ const AvailableAppointments = () => {
     getAppointment
   )
   if (isLoading) return <Spinner colored center />
-  const { _id, name, available } = data?.data
+  const { _id, name, available, price } = data?.data
 
   return (
     <section className='my-20'>
@@ -39,7 +39,13 @@ const AvailableAppointments = () => {
       {available?.length > 0 && (
         <div className='grid grid-cols-1 md:grid-cols-2 2 lg:grid-cols-3 gap-5 my-10'>
           {available?.map((slot) => (
-            <AppointmentCard key={slot.id} _id={_id} name={name} slot={slot} />
+            <AppointmentCard
+              key={slot.id}
+              _id={_id}
+              name={name}
+              slot={slot}
+              price={price}
+            />
           ))}
         </div>
       )}

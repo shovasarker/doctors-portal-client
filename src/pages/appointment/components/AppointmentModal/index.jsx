@@ -10,8 +10,17 @@ import Input from '../../../standalone/Input'
 import { toast } from 'react-toastify'
 
 const AppointmentModal = ({ refetch }) => {
-  const { name, selected, slot, _id, setName, setSlot, set_Id } =
-    useContext(AppointmentContext)
+  const {
+    name,
+    selected,
+    slot,
+    price,
+    _id,
+    setName,
+    setSlot,
+    set_Id,
+    setPrice,
+  } = useContext(AppointmentContext)
   const [{ email, displayName }] = useAuthState(auth)
   const {
     register,
@@ -45,6 +54,7 @@ const AppointmentModal = ({ refetch }) => {
       treatment: name,
       date: format(selected, 'PP'),
       slot: slot.time,
+      price,
       patient: {
         name: displayName,
         email: email,
@@ -56,6 +66,7 @@ const AppointmentModal = ({ refetch }) => {
     setName('')
     setSlot('')
     set_Id('')
+    setPrice(0)
   }
   return (
     <>
@@ -103,7 +114,7 @@ const AppointmentModal = ({ refetch }) => {
               readOnly
             />
             <Input
-              type='number'
+              type='text'
               name='phoneNumber'
               placeholder='Phone Number'
               register={register}

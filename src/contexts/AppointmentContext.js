@@ -6,6 +6,7 @@ export const AppointmentProvider = ({ children }) => {
   const [_id, set_Id] = useState('')
   const [name, setName] = useState('')
   const [slot, setSlot] = useState({})
+  const [price, setPrice] = useState(0)
   const [selected, setSelected] = useState(new Date())
   return (
     <AppointmentContext.Provider
@@ -13,9 +14,11 @@ export const AppointmentProvider = ({ children }) => {
         name,
         setName,
         slot,
+        price,
         setSlot,
         selected,
         setSelected,
+        setPrice,
         _id,
         set_Id,
       }}
