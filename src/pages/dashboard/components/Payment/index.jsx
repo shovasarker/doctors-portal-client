@@ -15,11 +15,14 @@ const Payment = () => {
   const { id } = useParams()
 
   const getBooking = async () => {
-    const { data } = await axios.get(`http://localhost:5000/booking/${id}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-      },
-    })
+    const { data } = await axios.get(
+      `https://dpss-server.herokuapp.com/booking/${id}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      }
+    )
     return data
   }
 

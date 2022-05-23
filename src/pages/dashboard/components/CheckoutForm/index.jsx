@@ -12,12 +12,12 @@ const CheckoutForm = ({ booking }) => {
   const [success, setSuccess] = useState('')
   const [transactionId, setTransactionId] = useState('')
   const [clientSecret, setClientSecret] = useState('')
-  const { price, patient } = booking
+  const { _id, price, patient } = booking
   useEffect(() => {
     const getClientSecret = async () => {
       try {
         const { data } = await axios.post(
-          'http://localhost:5000/create-payment-intent',
+          'https://dpss-server.herokuapp.com/create-payment-intent',
           { price },
           {
             headers: {
@@ -78,7 +78,28 @@ const CheckoutForm = ({ booking }) => {
       setCardError('')
       setSuccess('Congrats! Your Payment is Completed.')
       setTransactionId(paymentIntent?.id)
-      toast?.success('Congrats! Your Payment is Completed.')
+      const payment = {
+        bookingId: _id,
+        transactionId: paymentIntent?.id,
+      }
+
+      try {
+        const { data } = await axios.patch(
+          `https://dpss-server.herokuapp.com/booking/${_id}`,
+          payment,
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            },
+          }
+        )
+        console.log(data)
+        if (data?.modifiedCount > 0) {
+          toast?.success('Congrats! Your Payment is Completed.')
+        }
+      } catch (error) {
+        console.log(error)
+      }
     }
     setLoading(false)
   }

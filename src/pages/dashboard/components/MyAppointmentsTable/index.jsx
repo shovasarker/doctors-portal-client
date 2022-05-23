@@ -16,7 +16,7 @@ const MyAppintmentsTable = ({ myAppointments }) => {
         </thead>
         <tbody>
           {myAppointments?.map(
-            ({ _id, patient, treatment, slot, price, paid }, i) => {
+            ({ _id, patient, treatment, slot, price, paid, transactionId }, i) => {
               return (
                 <tr key={_id}>
                   <td>{i + 1}</td>
@@ -33,7 +33,13 @@ const MyAppintmentsTable = ({ myAppointments }) => {
                           Pay
                         </Link>
                       ) : (
-                        <span className='text-success'>Paid</span>
+                        <div>
+                          <span className='text-success'>Paid</span>
+                          <p>
+                            Transaction Id:{' '}
+                              <span className='text-success'>{transactionId}</span>
+                          </p>
+                        </div>
                       )
                     ) : (
                       <></>
